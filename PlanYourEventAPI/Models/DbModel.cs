@@ -13,7 +13,7 @@ namespace PlanYourEventAPI.Models
 
         }
 
-        public DbSet<EventDesp> EventDesps { get; set; }
+        public DbSet<EventDesp> EventDesp { get; set; }
 
     }
 }

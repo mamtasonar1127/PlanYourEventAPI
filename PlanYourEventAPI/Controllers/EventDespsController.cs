@@ -26,14 +26,14 @@ namespace PlanYourEventAPI.Controllers
         [HttpGet]
         public IEnumerable<EventDesp> Get()
         {
-            return db.EventDesps.OrderBy(p => p.ED_Name).ToList();
+            return db.EventDesp.OrderBy(p => p.ED_Name).ToList();
         }
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
-            var eventdesp = db.EventDesps.SingleOrDefault(p=>p.EDId == id );
+            var eventdesp = db.EventDesp.SingleOrDefault(p=>p.EDId == id );
             if (eventdesp == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace PlanYourEventAPI.Controllers
             }
             else
             {
-                db.EventDesps.Add(eventDesp);
+                db.EventDesp.Add(eventDesp);
                 db.SaveChanges();
                 return CreatedAtAction("Post", new { id = eventDesp.EDId }, eventDesp);
             }
@@ -82,14 +82,14 @@ namespace PlanYourEventAPI.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            var product = db.EventDesps.SingleOrDefault(p => p.EDId == id);
+            var product = db.EventDesp.SingleOrDefault(p => p.EDId == id);
             if (product == null)
             {
                 return NotFound();
             }
             else
             {
-                db.EventDesps.Remove(eventDesp);
+                db.EventDesp.Remove(eventDesp);
                 db.SaveChanges();
                 return Ok();
             }
